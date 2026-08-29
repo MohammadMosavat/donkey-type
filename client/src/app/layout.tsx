@@ -8,10 +8,23 @@ import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Donkey Type",
+    default: "Home | Donkey Type",
     template: "%s | Donkey Type",
   },
-  description: "A minimal space for typing",
+  description:
+    "Donkey Type is a minimal, distraction-free typing speed test. Track your WPM, accuracy, and progress over time.",
+  keywords: [
+    "typing test",
+    "typing speed test",
+    "WPM test",
+    "words per minute",
+    "typing practice",
+    "keyboard speed test",
+    "donkey type",
+    "typing game",
+    "improve typing speed",
+    "online typing test",
+  ],
   icons: "/svgs/logo.svg",
 };
 

@@ -1,8 +1,6 @@
-"use client";
+"use client";;
 import themes from "@/data/theme";
-import { useEffect, useState } from "react";
-import Footer from "../footer";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { RootState } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "@/features/themeSlice";
@@ -11,7 +9,6 @@ export default function ThemeSwitcher() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    document.title = "Themes | Donkey Type";
     document.documentElement.className =
       localStorage.getItem("theme") ?? "theme-indigo-emerald";
   });

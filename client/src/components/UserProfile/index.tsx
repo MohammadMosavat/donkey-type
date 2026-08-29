@@ -15,7 +15,6 @@ export default function UserProfileCard({ username }: { username: string }) {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = `${username} | Donkey Type`;
     document.documentElement.className =
       localStorage.getItem("theme") ?? "theme-indigo-emerald";
 

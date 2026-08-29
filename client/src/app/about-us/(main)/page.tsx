@@ -39,7 +39,6 @@ const AboutUsPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        document.title = "About Us | Donkey Type";
         document.documentElement.className =
             localStorage.getItem("theme") ?? "theme-indigo-emerald";
 

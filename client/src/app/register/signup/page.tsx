@@ -16,7 +16,6 @@ const SignUpForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = "Sign Up | Donkey Type";
     document.documentElement.className =
       localStorage.getItem("theme") ?? "theme-indigo-emerald";
   });
