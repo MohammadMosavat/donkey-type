@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ReactSVG } from "react-svg";
 import Button from "../MainButton";
+import Cookies from "js-cookie";
 
 interface FilterLinksProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -9,7 +9,7 @@ interface FilterLinksProps
 }
 
 const FilterLinks = (props: FilterLinksProps) => {
-  const username = localStorage.getItem("username");
+  const username = Cookies.get("username");
   const { isActive = false, ...rest } = props;
 
   return (

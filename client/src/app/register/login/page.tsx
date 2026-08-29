@@ -1,28 +1,34 @@
-"use client";
+"use client";;
 import React, { useEffect, useState } from "react";
 import backendApi from "@/api/backend";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Button from "@/components/MainButton";
-import { ReactSVG } from "react-svg";
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
     setMessage("");
 
     try {
       const response = await backendApi.post("/auth/login", { email, password });
-      localStorage.setItem("accessToken", response.data.access_token);
-      localStorage.setItem("username", response.data.username);
+      Cookies.set("accessToken", response.data.access_token, {
+        expires: 7,
+        secure: true,
+        sameSite: "strict",
+      });
+      Cookies.set("username", response.data.username, {
+        expires: 7,
+        secure: true,
+        sameSite: "strict",
+      });
       toast.success(`Welcome back ${response.data.username}`);
       router.push("/");
     } catch (err) {

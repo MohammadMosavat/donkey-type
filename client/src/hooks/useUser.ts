@@ -1,5 +1,6 @@
 import UserProfileCardProps from "@/types";
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import backendApi from "@/api/backend";
 
 const useUser = () => {
@@ -10,7 +11,7 @@ const useUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const username = localStorage.getItem("username");
+        const username = Cookies.get("username");
         if (!username) {
           setUser([]);
           return;

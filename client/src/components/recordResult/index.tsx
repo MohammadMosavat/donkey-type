@@ -54,7 +54,7 @@ const RecordResult = ({
           </Link>
         ) : (
           <Link
-            href={`/${username}/sort?filter=newest`}
+            href={`/yourhall/${username}/sort?filter=newest`}
             className="font-JetBrainsMono w-fit mx-auto p-1.5 bg-thrid rounded-xl "
           >
             check the records

@@ -1,20 +1,12 @@
-"use client";
+"use client";;
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
-import toast from "react-hot-toast";
-import useAuth from "@/hooks/useAuth";
 import TypingGame from "@/components/Typing";
 import commonWords from "@/data/commonWords";
-import { WpmRecord } from "@/types";
-import Link from "next/link";
-import { ReactSVG } from "react-svg";
-import Footer from "@/components/footer";
-import { motion } from "framer-motion";
 import SettingBar from "@/components/settingBar";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
 const Home = () => {
-  useAuth();
   const quickStart = useSelector((state: RootState) => state.quickStart.value);
   const focusMode = useSelector((state: RootState) => state.focusMode.value);
   const [time, setTime] = useState<number>(

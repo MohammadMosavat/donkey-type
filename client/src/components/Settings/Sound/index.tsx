@@ -48,19 +48,19 @@ const Sound = () => {
   };
 
   return (
-    <li className="flex flex-col w-full gap-10">
-      <section className="flex flex-col  gap-2">
-        <p className="text-2xl font-bold">Sound</p>
-        <p className="text-justify">
+    <li className="flex flex-col w-full gap-6 md:gap-10">
+      <section className="flex flex-col gap-2">
+        <p className="text-xl md:text-2xl font-bold">Sound</p>
+        <p className="text-justify text-sm md:text-base">
           Each time you presses a key, a short sound effect plays.
         </p>
       </section>
-      <ul className="sound-options grid grid-cols-6 gap-2 ">
+      <ul className="sound-options grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
         {soundOptions.map((option) => (
           <Button
             key={option.state}
             data-selected={sound === option.state}
-            className="!rounded-xl w-full"
+            className="!rounded-xl w-full !text-xs sm:!text-sm md:!text-base"
             onClick={() => handleSoundChange(option.state)}
             variant={sound === option.state ? "secondary" : "outline"}
             size="md"

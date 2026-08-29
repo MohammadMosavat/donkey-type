@@ -4,7 +4,6 @@ import Loading from "@/components/loading";
 import WpmRecords from "@/components/WpmRecord";
 import { WpmRecord } from "@/types";
 import backendApi from "@/api/backend";
-import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,7 +12,6 @@ const MainPageProfile = () => {
   const searchParams = useSearchParams();
   const [records, setRecords] = useState<WpmRecord[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   const currentFilter = searchParams.get("filter") || "newest";
 
@@ -24,7 +22,6 @@ const MainPageProfile = () => {
           params: { username: params.id, sort: currentFilter },
         });
         setRecords(response.data);
-        setError(null);
       } catch (err) {
         console.log("Failed to fetch records.");
       } finally {
@@ -35,11 +32,11 @@ const MainPageProfile = () => {
   }, [params.id, currentFilter]);
 
   return !loading ? (
-    <main className="w-full flex flex-col gap-6">
-      <h1 className="text-xl font-JetBrainsMono text-primary my-8">
+    <main className="w-full flex flex-col gap-4 md:gap-6 px-4 md:px-0">
+      <h1 className="text-lg md:text-xl font-JetBrainsMono text-primary my-4 md:my-8">
         WPM Records
       </h1>
-      <ul className="flex items-center gap-2">
+      <ul className="flex items-center gap-2 flex-wrap">
         <FilterLinks isActive={currentFilter === "newest"} filter="newest" />
         <FilterLinks isActive={currentFilter === "oldest"} filter="oldest" />
         <FilterLinks

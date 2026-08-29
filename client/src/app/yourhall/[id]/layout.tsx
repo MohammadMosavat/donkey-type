@@ -1,5 +1,4 @@
 import UserProfileCard from "@/components/UserProfile";
-import WpmRecords from "@/components/WpmRecord";
 import { ReactNode } from "react";
 
 interface Props {

@@ -61,10 +61,10 @@ const Behavior = () => {
 
   return (
     <>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl font-bold">Quick Start</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl font-bold">Quick Start</p>
+          <p className="text-justify text-sm md:text-base">
             When you're in the middle of a typing test or has completed a
             session, you can press the Tab key followed by the Enter key to
             immediately restart the test. This eliminates the need to move your
@@ -72,7 +72,7 @@ const Behavior = () => {
             your focus entirely on typing.
           </p>
         </section>
-        <ul className="grid grid-cols-2 gap-2 w-1/3">
+        <ul className="grid grid-cols-2 gap-2 w-full md:w-1/3">
           {quickStartOptions.map((option) => {
             return (
               <div key={option.value} className="w-full">
@@ -94,10 +94,10 @@ const Behavior = () => {
           })}
         </ul>
       </li>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl font-bold">Focus Mode</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl font-bold">Focus Mode</p>
+          <p className="text-justify text-sm md:text-base">
             Hides error feedback while you type, allowing for a distraction-free
             experience. Unlike regular mode, mistakes aren’t highlighted
             immediately; instead, they are revealed only after the test ends.
@@ -106,7 +106,7 @@ const Behavior = () => {
             complete, errors, accuracy, and WPM are displayed for review.
           </p>
         </section>
-        <ul className="grid grid-cols-2 gap-2 w-1/3">
+        <ul className="grid grid-cols-2 gap-2 w-full md:w-1/3">
           {focusModeOptions.map((option) => {
             return (
               <div key={option.value} className="w-full">
@@ -126,10 +126,10 @@ const Behavior = () => {
           })}
         </ul>
       </li>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl font-bold">Hide Extra Letters</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl font-bold">Hide Extra Letters</p>
+          <p className="text-justify text-sm md:text-base">
             The Hide Extra Letters feature improves the readability of your
             typing speed test by removing unnecessary letters, specifically
             extra error letters. When you type an incorrect letter that doesn’t
@@ -138,10 +138,11 @@ const Behavior = () => {
             letters, allowing you to focus on the correct input.
           </p>
         </section>
-        <ul className="grid grid-cols-2 gap-2 w-1/3">
+        <ul className="grid grid-cols-2 gap-2 w-full md:w-1/3">
           {hideExtraElementsOptions.map((option) => {
             return (
               <Button
+                key={option.value}
                 className="!rounded-xl w-full"
                 onClick={() => {
                   localStorage.setItem("hideExtraElements", option.state);
@@ -158,17 +159,18 @@ const Behavior = () => {
           })}
         </ul>
       </li>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl font-bold">Blind Effects</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl font-bold">Blind Effects</p>
+          <p className="text-justify text-sm md:text-base">
             It will not showing the informations of words by the colors.
           </p>
         </section>
-        <ul className="grid grid-cols-2 gap-2 w-1/3">
+        <ul className="grid grid-cols-2 gap-2 w-full md:w-1/3">
           {blindEffectsOptions.map((option) => {
             return (
               <Button
+                key={option.value}
                 className="!rounded-xl w-full"
                 onClick={() => {
                   localStorage.setItem("blindEffects", option.state);
@@ -185,10 +187,10 @@ const Behavior = () => {
           })}
         </ul>
       </li>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl font-bold">Hide Caps Lock</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl font-bold">Hide Caps Lock</p>
+          <p className="text-justify text-sm md:text-base">
             The Caps Lock indicator will be hidden during the typing test. This
             prevents users from relying on visual cues and encourages them to
             focus on their typing instead of checking whether Caps Lock is on.
@@ -196,10 +198,11 @@ const Behavior = () => {
             memory for capitalization.
           </p>
         </section>
-        <ul className="grid grid-cols-2 gap-2 w-1/3">
+        <ul className="grid grid-cols-2 gap-2 w-full md:w-1/3">
           {hideCapsLockOptions.map((option) => {
             return (
               <Button
+                key={option.value}
                 className="!rounded-xl w-full"
                 onClick={() => {
                   localStorage.setItem("hideCapsLock", option.state);
@@ -216,17 +219,18 @@ const Behavior = () => {
           })}
         </ul>
       </li>
-      <li className="flex items-center justify-between w-full gap-10">
-        <section className="flex flex-col w-2/3 gap-2">
-          <p className="text-2xl capitalize font-bold">pace caret style</p>
-          <p className="text-justify">
+      <li className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-10">
+        <section className="flex flex-col w-full md:w-2/3 gap-2">
+          <p className="text-xl md:text-2xl capitalize font-bold">pace caret style</p>
+          <p className="text-justify text-sm md:text-base">
             Change the style of the pace caret during the test.
           </p>
         </section>
-        <ul className="grid grid-cols-3 gap-2 w-1/3">
+        <ul className="grid grid-cols-3 gap-2 w-full md:w-1/3">
           {paceCaretStyleOptions.map((option) => {
             return (
               <Button
+                key={option.value}
                 className="!rounded-xl w-full"
                 onClick={() => {
                   localStorage.setItem("paceCaretStyle", option.state);

@@ -27,21 +27,21 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <Header />
-          <div className="md:my-10 flex flex-col items-center my-20 w-full">
+          <div className="md:my-20 flex flex-col items-center my-20 w-full">
             {children}
           </div>
           <Footer />
-        <Toaster position={"bottom-center"} toastOptions={{
+          <Toaster position={"bottom-center"} toastOptions={{
             className: 'font-JetBrainsMono text-secondary',
             style: {
-              width:'50%',
-              color:"var(--primary)",
-              backgroundColor:'var(--third)',
+              width: '50%',
+              color: "var(--primary)",
+              backgroundColor: 'var(--third)',
               borderRadius: '16px',
             },
           }}
-/>
-          </ReduxProvider>
+          />
+        </ReduxProvider>
       </body>
     </html>
   );

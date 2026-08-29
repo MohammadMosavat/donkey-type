@@ -44,10 +44,9 @@ const SettingsPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full items-center gap-10 ">
-
-      <section className="flex w-full justify-between items-center">
-        <div className="settings-tabs flex gap-2 border border-primary/30 w-4/12 p-1 rounded-xl">
+    <div className="flex flex-col w-full items-center gap-10">
+      <section className="flex flex-col sm:flex-row w-full justify-between items-stretch sm:items-center gap-4">
+        <div className="settings-tabs flex gap-2 border border-primary/30 w-full sm:w-4/12 p-1 rounded-xl">
           {tabs.map((tab) => (
             <button
               key={tab.name}
@@ -59,7 +58,9 @@ const SettingsPage = () => {
                   : "text-primary hover:bg-primary/10"
               }`}
             >
-              <span className="font-JetBrainsMono">{tab.name}</span>
+              <span className="font-JetBrainsMono text-sm sm:text-base">
+                {tab.name}
+              </span>
             </button>
           ))}
         </div>
@@ -69,7 +70,7 @@ const SettingsPage = () => {
           size="md"
           icon="/svgs/logout.svg"
           iconPosition="left"
-          className=" !bg-red-600 !text-white hover:!bg-red-800"
+          className="w-full sm:w-auto !bg-red-600 !text-white hover:!bg-red-800"
         >
           Reset Settings
         </Button>

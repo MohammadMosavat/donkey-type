@@ -274,7 +274,7 @@ function TypingGame({
       return (
         <motion.span
           key={wordIndex}
-          style={{ fontSize: +fontSize }}
+          style={{ fontSize: `clamp(14px, 4vw, ${fontSize}px)` }}
           className={`${getWordStyle(
             wordIndex,
           )} font-JetBrainsMono font-extralight select-none`}
@@ -318,7 +318,7 @@ function TypingGame({
     return (
       showTimer &&
       focusMode == "off" && (
-        <div className="text-primary text-2xl font-JetBrainsMono">
+        <div className="text-primary text-lg md:text-2xl font-JetBrainsMono">
           {timeLeft}
         </div>
       )
@@ -326,19 +326,19 @@ function TypingGame({
   }, [timeLeft]);
 
   return (
-    <div className={`flex flex-col w-9/12 items-center mx-auto `}>
+    <div className={`flex flex-col w-full px-4 md:px-0 md:w-9/12 items-center mx-auto `}>
       <main className="relative w-full mx-auto">
         <motion.label
           htmlFor="test"
           animate={{ opacity: 1, marginTop: gameOver ? -50 : 0 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className={`text-primary font-JetBrainsMono flex items-center justify-center gap-2 w-full h-full place-content-center text-center absolute ${isFocused &&
+          className={`text-primary font-JetBrainsMono flex items-center justify-center gap-2 w-full h-full place-content-center text-center text-sm md:text-base absolute ${isFocused &&
             "hidden"}`}
         >
           <ReactSVG
             src="/svgs/cursor.svg"
-            className="[&>div>svg]:size-7 [&_*]:stroke-primary"
+            className="[&>div>svg]:size-5 md:[&>div>svg]:size-7 [&_*]:stroke-primary"
           />
           <p>Click here to focus</p>
         </motion.label>
@@ -347,7 +347,7 @@ function TypingGame({
           <label
             htmlFor="test"
             className={` ${!isFocused &&
-              "blur-sm"} mb-4 text-thrid mx-auto w-full flex gap-2.5 flex-wrap `}
+              "blur-sm"} mb-4 text-thrid mx-auto w-full flex gap-1.5 md:gap-2.5 flex-wrap justify-center md:justify-start`}
           >
             {textsType}
           </label>

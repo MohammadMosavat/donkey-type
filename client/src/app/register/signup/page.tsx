@@ -88,8 +88,16 @@ const SignUpForm = () => {
         email,
         password,
       });
-      localStorage.setItem("accessToken", loginResponse.data.access_token);
-      localStorage.setItem("username", username);
+      Cookies.set("accessToken", loginResponse.data.access_token, {
+        expires: 7,
+        secure: true,
+        sameSite: "strict",
+      });
+      Cookies.set("username", username, {
+        expires: 7,
+        secure: true,
+        sameSite: "strict",
+      });
       router.push("/");
     } catch (error) {
       console.error("Registration error:", error);

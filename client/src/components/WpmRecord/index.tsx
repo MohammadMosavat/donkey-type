@@ -1,15 +1,10 @@
-"use client";
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+"use client";;
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Loading from "../loading";
 import { WpmRecord } from "@/types";
-import toast from "react-hot-toast";
-import LineChart from "../Charts";
 import PaginatedItems from "../PaginationItems";
 import Button from "../MainButton";
 import { ReactSVG } from "react-svg";
-import Link from "next/link";
 
 const WpmRecords = ({ records }: { records: WpmRecord[] }) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);

@@ -1,18 +1,24 @@
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import useUser from "./useUser";
+import { usePathname, useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const useAuth = () => {
   const router = useRouter();
-  const { user } = useUser();
-  console.log('this is user' , user);
-  useEffect(() => {
-    if (!user) {
-      router.push("/register/login");
-    }
-  }, [user, router]);
+  const pathname = usePathname();
 
-  return user;
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    console.log(accessToken);
+    if (accessToken) {
+      if (pathname.startsWith("/register")) {
+        router.push("/");
+      }
+    } else {
+      if (pathname.startsWith("/yourhall")) {
+        router.push("/register/login");
+      }
+    }
+  }, [pathname, router]);
 };
 
 export default useAuth;

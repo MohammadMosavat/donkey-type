@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     isTyping == "off" && (
-      <ul className="fixed [&>a>button>p]:inline-block bottom-4 left-4 w-fit px-4">
+      <ul className="fixed hidden md:inline [&>a>button>p]:inline-block bottom-4 left-4 w-fit px-4">
         <Link href="/theme">
           <FooterItems value={theme} iconSrc="/svgs/theme.svg" />
         </Link>

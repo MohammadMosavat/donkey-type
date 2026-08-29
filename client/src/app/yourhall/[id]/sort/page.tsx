@@ -2,21 +2,18 @@
 import FilterLinks from "@/components/FiltersLink";
 import Loading from "@/components/loading";
 import WpmRecords from "@/components/WpmRecord";
-import useAuth from "@/hooks/useAuth";
 import { WpmRecord } from "@/types";
 import backendApi from "@/api/backend";
 import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ReactSVG } from "react-svg";
 
 const FilterRecordPage = () => {
-  useAuth()
   const params = useParams();
   const searchParams = useSearchParams();
   const filter = searchParams.get("filter");
   const [records, setRecords] = useState<WpmRecord[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchRecords = async () => {
       try {
@@ -25,7 +22,6 @@ const FilterRecordPage = () => {
         });
         setRecords(response.data);
 
-        setError(null);
       } catch (err) {
         console.log("Failed to fetch records.");
       } finally {
@@ -35,34 +31,34 @@ const FilterRecordPage = () => {
     fetchRecords();
   }, [filter]);
   return !loading ? (
-    <main className="w-full flex flex-col gap-4 md:gap-10">
-      <h1 className="text-lg md:text-xl capitalize font-JetBrainsMono text-primary">
+    <main className="w-full flex flex-col gap-4 md:gap-10 px-4 md:px-0">
+      <h1 className="text-base sm:text-lg md:text-xl capitalize font-JetBrainsMono text-primary">
         {filter} WPM Records
       </h1>
       <div className="flex items-center gap-4">
         <ul className="flex flex-wrap items-center gap-2 md:gap-3">
           <FilterLinks
             data-tooltip="Base on Date"
-            className="tooltip text-sm md:text-base"
+            className="tooltip text-xs sm:text-sm md:text-base"
             isActive={filter === "newest"}
             filter="newest"
           />
           <FilterLinks
             data-tooltip="Base on Date"
-            className="tooltip text-sm md:text-base"
+            className="tooltip text-xs sm:text-sm md:text-base"
             isActive={filter === "oldest"}
             filter="oldest"
           />
           <FilterLinks
             isActive={filter === "highest"}
             data-tooltip="Base on WPM"
-            className="tooltip text-sm md:text-base"
+            className="tooltip text-xs sm:text-sm md:text-base"
             filter="highest"
           />
           <FilterLinks
             isActive={filter === "lowest"}
             data-tooltip="Base on WPM"
-            className="tooltip text-sm md:text-base"
+            className="tooltip text-xs sm:text-sm md:text-base"
             filter="lowest"
           />
         </ul>
