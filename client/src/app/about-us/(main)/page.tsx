@@ -11,7 +11,7 @@ interface Contributor {
     contributions: number;
 }
 
-const GITHUB_REPO = "MohammadMosavat/donkeyTyping";
+const GITHUB_REPO = "MohammadMosavat/donkey-type";
 
 const goals = [
     {

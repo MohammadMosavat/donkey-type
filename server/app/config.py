@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "DonkeyTyping API"
+    app_name: str = "Donkey Type API"
     mongodb_url: str = "mongodb://localhost:27017"
     mongodb_database: str = "typing_db"
     cors_origins: list[str] = Field(default=["http://localhost:3000"])
