@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface CounterState {
   value: string 
 }
 
 const initialState: CounterState = {
-  value: localStorage.getItem("sound") ?? "off",
+  value: getLocalItem("sound") ?? "off",
 };
 
 export const soundSlice = createSlice({

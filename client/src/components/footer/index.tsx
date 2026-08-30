@@ -4,6 +4,7 @@ import NavLinks from "../NavLinks";
 import { RootState } from "@/store";
 import FooterItems from "../FooterItems";
 import Link from "next/link";
+import { asset } from "@/utils/asset";
 
 const Footer = () => {
   const theme = useSelector((state: RootState) => state.theme.value);
@@ -13,7 +14,7 @@ const Footer = () => {
     isTyping == "off" && (
       <ul className="fixed hidden md:inline [&>a>button>p]:inline-block bottom-4 left-4 w-fit px-4">
         <Link href="/theme">
-          <FooterItems value={theme} iconSrc="/svgs/theme.svg" />
+          <FooterItems value={theme} iconSrc={asset("/svgs/theme.svg")} />
         </Link>
       </ul>
     )

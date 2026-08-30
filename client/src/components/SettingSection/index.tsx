@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Loading from "../loading";
+import { asset } from "@/utils/asset";
+import { getLocalItem } from "@/utils/storage";
 
 const SettingSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +16,7 @@ const SettingSection = () => {
     true,
     true,
   ]);
-  const getThemeFromLocal = localStorage.getItem("theme");
+  const getThemeFromLocal = getLocalItem("theme");
 
   const handleImageLoad = (index: number) => {
     setLoading((prev) => {
@@ -24,11 +26,11 @@ const SettingSection = () => {
     });
   };
   const imagesArray = [
-    { src: "/images/bg3.jpg", alt: "Background Option 1" },
-    { src: "/images/bg2.jpg.jpg.png", alt: "Background Option 3" },
-    { src: "/images/bg6.jpg", alt: "Background Option 4" },
-    { src: "/images/bg7.jpg", alt: "Background Option 5" },
-    { src: "/images/bg2.jpg.jpg", alt: "Background Option 6" },
+    { src: asset("/images/bg3.jpg"), alt: "Background Option 1" },
+    { src: asset("/images/bg2.jpg.jpg.png"), alt: "Background Option 3" },
+    { src: asset("/images/bg6.jpg"), alt: "Background Option 4" },
+    { src: asset("/images/bg7.jpg"), alt: "Background Option 5" },
+    { src: asset("/images/bg2.jpg.jpg"), alt: "Background Option 6" },
   ];
   return (
     <>
@@ -37,7 +39,7 @@ const SettingSection = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-fit items-center gap-2 cursor-pointer"
         >
-          <img src="/svgs/brush.svg" alt="Brush Icon" />
+          <img src={asset("/svgs/brush.svg")} alt="Brush Icon" />
           <p className="text-white font-JetBrainsMono">Theme</p>
         </li>
         {isOpen && (

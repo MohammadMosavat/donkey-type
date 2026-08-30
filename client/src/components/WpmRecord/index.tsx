@@ -5,6 +5,7 @@ import { WpmRecord } from "@/types";
 import PaginatedItems from "../PaginationItems";
 import Button from "../MainButton";
 import { ReactSVG } from "react-svg";
+import { asset } from "@/utils/asset";
 
 const WpmRecords = ({ records }: { records: WpmRecord[] }) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -57,13 +58,13 @@ const WpmRecords = ({ records }: { records: WpmRecord[] }) => {
         >
           <section className="flex items-center gap-2">
             <ReactSVG
-              src="/svgs/filters.svg"
+              src={asset("/svgs/filters.svg")}
               className="[&_*]:max-md:size-5 [&_*]:size-6 [&_*]:stroke-primary"
             />
             <span>Filter by Date</span>
           </section>
           <ReactSVG
-            src="/svgs/arrow-down.svg"
+            src={asset("/svgs/arrow-down.svg")}
             className={`[&>div>svg]:max-md:size-5  [&>div>svg]:size-6 [&_*]:stroke-primary transition-transform duration-200 ${
               showDateDropdown ? "rotate-180" : ""
             }`}

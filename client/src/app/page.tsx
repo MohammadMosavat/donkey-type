@@ -5,15 +5,16 @@ import commonWords from "@/data/commonWords";
 import SettingBar from "@/components/settingBar";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { getLocalItem } from "@/utils/storage";
 
 const Home = () => {
   const quickStart = useSelector((state: RootState) => state.quickStart.value);
   const focusMode = useSelector((state: RootState) => state.focusMode.value);
   const [time, setTime] = useState<number>(
-    Number(localStorage.getItem("time") ?? 30)
+    Number(getLocalItem("time") ?? 30)
   );
   const [words, setWords] = useState<number>(
-    Number(localStorage.getItem("words") ?? 30)
+    Number(getLocalItem("words") ?? 30)
   );
   const [resetTimer, setResetTimer] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -104,7 +105,7 @@ const Home = () => {
 
   useEffect(() => {
     document.documentElement.className =
-      localStorage.getItem("theme") ?? "theme-indigo-emerald";
+      getLocalItem("theme") ?? "theme-indigo-emerald";
   });
 
   const refreshShortCut = useMemo(() => {

@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import Header from "@/components/Header";
 import ReduxProvider from "@/providers/ReduxProviders";
 import Footer from "@/components/footer";
+import { asset } from "@/utils/asset";
 
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "improve typing speed",
     "online typing test",
   ],
-  icons: "/svgs/logo/logo.svg",
+  icons: asset("/svgs/logo/logo.svg"),
 };
 
 export default function RootLayout({

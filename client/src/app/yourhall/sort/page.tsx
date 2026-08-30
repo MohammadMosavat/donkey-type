@@ -4,12 +4,12 @@ import Loading from "@/components/loading";
 import WpmRecords from "@/components/WpmRecord";
 import { WpmRecord } from "@/types";
 import backendApi from "@/api/backend";
-import { useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 
-const FilterRecordPage = () => {
-  const params = useParams();
+const SortedRecords = () => {
   const searchParams = useSearchParams();
+  const username = searchParams.get("user");
   const filter = searchParams.get("filter");
   const [records, setRecords] = useState<WpmRecord[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -18,7 +18,7 @@ const FilterRecordPage = () => {
     const fetchRecords = async () => {
       try {
         const response = await backendApi.get("/records", {
-          params: { username: params.id, sort: filter ?? "newest" },
+          params: { username, sort: filter ?? "newest" },
         });
         setRecords(response.data);
 
@@ -29,7 +29,7 @@ const FilterRecordPage = () => {
       }
     };
     fetchRecords();
-  }, [filter]);
+  }, [username, filter]);
   return !loading ? (
     <main className="w-full flex flex-col gap-4 md:gap-10 px-4 md:px-0">
       <h1 className="text-base sm:text-lg md:text-xl capitalize font-JetBrainsMono text-primary">
@@ -70,5 +70,11 @@ const FilterRecordPage = () => {
     <Loading />
   );
 };
+
+const FilterRecordPage = () => (
+  <Suspense fallback={<Loading />}>
+    <SortedRecords />
+  </Suspense>
+);
 
 export default FilterRecordPage;

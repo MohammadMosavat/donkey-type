@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface FontSizeState {
   value: string 
 }
 
 const initialState: FontSizeState = {
-  value: localStorage.getItem("fontSize") ?? "16",
+  value: getLocalItem("fontSize") ?? "16",
 };
 
 export const fontSizeSlice = createSlice({

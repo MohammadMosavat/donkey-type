@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Loading from "@/components/loading";
 import { ReactSVG } from "react-svg";
 import Image from "next/image";
+import { asset } from "@/utils/asset";
 
 interface Contributor {
     login: string;
@@ -19,19 +20,19 @@ const goals = [
         title: "Distraction-Free Practice",
         description:
             "A clean, minimal typing test with focus mode, blind effects, and customizable UI so nothing gets between you and your typing speed.",
-        icon: "/svgs/cursor.svg",
+        icon: asset("/svgs/cursor.svg"),
     },
     {
         title: "Track Real Progress",
         description:
             "Every test is saved to your profile — WPM, accuracy, and history — so you can see improvement over time, not just a single score.",
-        icon: "/svgs/calendar.svg",
+        icon: asset("/svgs/calendar.svg"),
     },
     {
         title: "Open Source & Community Driven",
         description:
             "Built in the open. Anyone can contribute features, fix bugs, or suggest improvements on GitHub.",
-        icon: "/svgs/theme.svg",
+        icon: asset("/svgs/theme.svg"),
     },
 ];
 
@@ -71,7 +72,7 @@ const AboutUsPage = () => {
                 transition={{ duration: 0.4 }}
                 className="flex flex-wrap gap-4 w-full items-center"
             >
-                <Image src={'/svgs/logo/logo.svg'} width={298} height={128} alt="" />
+                <Image src={asset("/svgs/logo/logo.svg")} width={298} height={128} alt="" />
                 <div className="flex flex-col gap-4">
                     <h1 className="text-2xl md:text-4xl font-JetBrainsMono text-primary">
                         About Donkey Type

@@ -27,7 +27,7 @@ const RecordResult = ({
   const username = user[0]?.username;
   return (
     <motion.div
-      key={isOver}
+      key={String(isOver)}
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
@@ -54,7 +54,7 @@ const RecordResult = ({
           </Link>
         ) : (
           <Link
-            href={`/yourhall/${username}/sort?filter=newest`}
+            href={`/yourhall/sort?user=${username}&filter=newest`}
             className="font-JetBrainsMono w-fit mx-auto p-1.5 bg-thrid rounded-xl "
           >
             check the records

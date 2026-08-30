@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface FocusModeState {
   value: string 
 }
 
 const initialState: FocusModeState = {
-  value: localStorage.getItem("focusMode") ?? "off",
+  value: getLocalItem("focusMode") ?? "off",
 };
 
 export const focusModeSlice = createSlice({
