@@ -49,7 +49,7 @@ const Header = () => {
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
-        className={`terminal-header z-50 w-full fixed top-0 left-0 transition-all duration-300 backdrop-blur-2xl p-4 flex flex-col md:flex-row md:items-center md:justify-between`}
+        className={`terminal-header z-50 w-full fixed top-0 left-0 transition-all duration-300 backdrop-blur-2xl p-4 flex flex-col md:flex-row md:items-center`}
       >
         <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
           <div className="flex items-center gap-0">
