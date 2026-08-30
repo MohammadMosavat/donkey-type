@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "improve typing speed",
     "online typing test",
   ],
-  icons: "/svgs/logo.svg",
+  icons: "/svgs/logo/logo.svg",
 };
 
 export default function RootLayout({

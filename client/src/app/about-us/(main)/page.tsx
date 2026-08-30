@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Loading from "@/components/loading";
 import { ReactSVG } from "react-svg";
+import Image from "next/image";
 
 interface Contributor {
     login: string;
@@ -63,22 +64,25 @@ const AboutUsPage = () => {
     }, []);
 
     return (
-        <div className="w-full flex flex-col gap-12 md:gap-16 px-4 md:px-0 pb-16">
+        <div className="w-full flex flex-col gap-12 px-4 md:px-0 pb-16">
             <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col gap-4 max-w-2xl"
+                className="flex flex-wrap gap-4 w-full items-center"
             >
-                <h1 className="text-2xl md:text-4xl font-JetBrainsMono text-primary">
-                    About Donkey Type
-                </h1>
-                <p className="text-sm md:text-base font-JetBrainsMono text-primary text-justify">
-                    Donkey Type is a fast, minimal typing speed test built for people
-                    who want to actually improve — not just watch a number flash on
-                    screen. It's open source, actively developed, and shaped by
-                    feedback from the people who use it.
-                </p>
+                <Image src={'/svgs/logo/logo.svg'} width={298} height={128} alt="" />
+                <div className="flex flex-col gap-4">
+                    <h1 className="text-2xl md:text-4xl font-JetBrainsMono text-primary">
+                        About Donkey Type
+                    </h1>
+                    <p className="text-sm md:text-base font-JetBrainsMono text-primary text-justify">
+                        Donkey Type is a fast, minimal typing speed test built for people
+                        who want to actually improve — not just watch a number flash on
+                        screen. It's open source, actively developed, and shaped by
+                        feedback from the people who use it.
+                    </p>
+                </div>
             </motion.section>
 
             <section className="flex flex-col gap-6">
