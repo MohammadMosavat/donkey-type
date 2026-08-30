@@ -1,6 +1,6 @@
-# 🫏 donkeyTyping
+# 🫏 Donkey Type
 
-donkeyTyping is a simple and fun **typing speed test** application.  
+Donkey Type is a simple and fun **typing speed test** application.  
 It helps users improve their typing skills, measure their **WPM (Words Per Minute)**, and track **accuracy** over time.
 
 ---
@@ -24,7 +24,7 @@ It helps users improve their typing skills, measure their **WPM (Words Per Minut
 
 ## 📂 Project Structure
 ```
-donkeyTyping/
+Donkey Type/
 │── public/          # Static assets
 │── src/
 │   ├── components/  # Reusable UI components
@@ -41,8 +41,8 @@ donkeyTyping/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MohammadMosavat/donkeyTyping.git
-   cd donkeyTyping
+   git clone https://github.com/MohammadMosavat/Donkey Type.git
+   cd Donkey Type
    ```
 
 2. Install dependencies:
