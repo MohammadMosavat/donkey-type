@@ -8,13 +8,15 @@ import useUser from "@/hooks/useUser";
 import useAuth from "@/hooks/useAuth";
 import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/utils/asset";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import LunchDiningRoundedIcon from '@mui/icons-material/LunchDiningRounded';
 
 const Header = () => {
   useAuth();
   const { user } = useUser();
-  const pathname = usePathname();
+  // `trailingSlash` is on for the static export, so normalize before comparing.
+  const pathname = usePathname().replace(/\/+$/, "") || "/";
 
   // State to manage mobile menu toggle
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +29,9 @@ const Header = () => {
     return user.length > 0 ? (
       <NavLinks
         onClick={closeMenu}
-        className={`group max-md:px-0 terminal-nav-link w-full md:w-auto opacity-50 hover:opacity-100 bg-transparent ${pathname === `/yourhall/${username}/sort` ? "!opacity-100 [&_*]:stroke-2" : ""
+        className={`group max-md:px-0 terminal-nav-link w-full md:w-auto opacity-50 hover:opacity-100 bg-transparent ${pathname === "/yourhall/sort" ? "!opacity-100 [&_*]:stroke-2" : ""
           }`}
-        link={`/yourhall/${username}/sort?filter=newest`}
+        link={`/yourhall/sort?user=${username}&filter=newest`}
         value={"Yourhall"}
       />
     ) : (
@@ -62,7 +64,7 @@ const Header = () => {
             </button>
 
             <Link href={'/'} onClick={closeMenu}>
-              <Image src="/svgs/logo/logo.svg" width={64} height={64} alt="Donkey Typing Logo" />
+              <Image src={asset("/svgs/logo/logo.svg")} width={64} height={64} alt="Donkey Typing Logo" />
             </Link>
           </div>
         </div>

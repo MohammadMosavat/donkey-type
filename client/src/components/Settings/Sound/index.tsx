@@ -3,25 +3,26 @@ import { toggleSound } from "@/features/sound";
 import { RootState } from "@/store";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { asset } from "@/utils/asset";
 
 const soundOptions = [
   { value: "Off", state: "off" },
-  { value: "Kick", state: "kick", file: "/sounds/kick.mp3" },
-  { value: "Pick", state: "pick", file: "/sounds/pick.mp3" },
+  { value: "Kick", state: "kick", file: asset("/sounds/kick.mp3") },
+  { value: "Pick", state: "pick", file: asset("/sounds/pick.mp3") },
   {
     value: "Mouse",
     state: "mouse-click",
-    file: "/sounds/mouse-click.mp3",
+    file: asset("/sounds/mouse-click.mp3"),
   },
   {
     value: "Keyboard",
     state: "keyboard-typing",
-    file: "/sounds/keyboard-typing.mp3",
+    file: asset("/sounds/keyboard-typing.mp3"),
   },
   {
     value: "Camera Shutter",
     state: "camera-shutter",
-    file: "/sounds/camera-shutter.mp3",
+    file: asset("/sounds/camera-shutter.mp3"),
   },
 ];
 

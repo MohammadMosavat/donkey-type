@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "../MainButton";
 import Cookies from "js-cookie";
+import { asset } from "@/utils/asset";
 
 interface FilterLinksProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -16,12 +17,15 @@ const FilterLinks = (props: FilterLinksProps) => {
     username && (
       <Link
         {...rest}
-        href={{ pathname: `sort`, query: { filter: props.filter } }}
+        href={{
+          pathname: "/yourhall/sort",
+          query: { user: username, filter: props.filter },
+        }}
       >
         <Button
           variant={isActive ? "outline" : "secondary"}
           size="md"
-          icon={`/svgs/${props.filter}.svg`}
+          icon={asset(`/svgs/${props.filter}.svg`)}
           iconPosition="left"
           className={props.className}
         >

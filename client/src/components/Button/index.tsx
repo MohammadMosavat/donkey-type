@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { ReactSVG } from "react-svg";
+import { asset } from "@/utils/asset";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -56,7 +57,7 @@ const Button = ({
     >
       {isLoading ? (
         <ReactSVG
-          src="/svgs/loading.svg"
+          src={asset("/svgs/loading.svg")}
           className="[&>div>svg]:size-5 animate-spin [&_*]:stroke-primary"
         />
       ) : (

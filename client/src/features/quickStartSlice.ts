@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface CounterState {
   value: string 
 }
 
 const initialState: CounterState = {
-  value: localStorage.getItem("quickStart") ?? "default",
+  value: getLocalItem("quickStart") ?? "default",
 };
 
 export const quickStartSlice = createSlice({

@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface CounterState {
   value: string 
 }
 
 const initialState: CounterState = {
-  value: localStorage.getItem("hideCapsLock") ?? "off",
+  value: getLocalItem("hideCapsLock") ?? "off",
 };
 
 export const hideCapsLockSlice = createSlice({

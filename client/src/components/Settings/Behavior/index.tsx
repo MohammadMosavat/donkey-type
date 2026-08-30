@@ -7,6 +7,7 @@ import { togglehideExtraElements } from "@/features/hideExtraElements";
 import { toggleHideCapsLock } from "@/features/hideCapsLock";
 import { togglePaceCaretStyle } from "@/features/paceCaretStyle";
 import { toggleBlindEffects } from "@/features/blindEffects";
+import { getLocalItem } from "@/utils/storage";
 
 const Behavior = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Behavior = () => {
   const blindEffects = useSelector((state: RootState) => state.blindEffect.value  );
 
   console.log(quickStart);
-  const localQuickStart = localStorage.getItem("quickStart");
+  const localQuickStart = getLocalItem("quickStart");
   console.log(localQuickStart);
 
   const quickStartOptions = [

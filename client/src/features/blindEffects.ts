@@ -1,13 +1,14 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface BlindEffectsState {
   value: string 
 }
 
 const initialState: BlindEffectsState = {
-  value: localStorage.getItem("blindEffects") ?? "off",
+  value: getLocalItem("blindEffects") ?? "off",
 };
 
 export const blindEffectsSlice = createSlice({

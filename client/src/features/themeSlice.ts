@@ -1,6 +1,7 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { getLocalItem } from "@/utils/storage";
 
 export interface CounterState {
   value: string 
@@ -11,7 +12,7 @@ const removeThemePrefix = (theme: string): string => {
 };
 
 const initialState: CounterState = {
-  value: removeThemePrefix(localStorage.getItem("theme") ?? "theme-indigo-emerald"),
+  value: removeThemePrefix(getLocalItem("theme") ?? "theme-indigo-emerald"),
 };
 
 export const counterSlice = createSlice({

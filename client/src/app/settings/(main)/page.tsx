@@ -13,6 +13,7 @@ import { togglehideExtraElements } from "@/features/hideExtraElements";
 import { motion } from "framer-motion";
 import Appearance from "@/components/Settings/Appearance";
 import { toggleFontSize } from "@/features/fontSize";
+import { asset } from "@/utils/asset";
 
 const tabs = [
   { name: "Appearance", content: <Appearance /> },
@@ -68,7 +69,7 @@ const SettingsPage = () => {
           onClick={handleResetSetting}
           variant="ghost"
           size="md"
-          icon="/svgs/logout.svg"
+          icon={asset("/svgs/logout.svg")}
           iconPosition="left"
           className="w-full sm:w-auto !bg-red-600 !text-white hover:!bg-red-800"
         >

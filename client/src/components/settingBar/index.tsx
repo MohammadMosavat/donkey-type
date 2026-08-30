@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ReactSVG } from "react-svg";
+import { asset } from "@/utils/asset";
+import { getLocalItem } from "@/utils/storage";
 
 interface SettingBarProps {
   setTime: (time: number) => void;
@@ -16,13 +18,13 @@ const SettingBar = ({
 }: SettingBarProps) => {
   const [activeTab, setActiveTab] = useState<"timer" | "words">("timer");
   const [activeTimeNumber, setActiveTimeNumber] = useState<number>(
-    localStorage.getItem("time")
-      ? parseInt(localStorage.getItem("time")!)
+    getLocalItem("time")
+      ? parseInt(getLocalItem("time")!)
       : 30
   );
   const [activeWordNumber, setActiveWordNumber] = useState<number>(
-    localStorage.getItem("words")
-      ? parseInt(localStorage.getItem("words")!)
+    getLocalItem("words")
+      ? parseInt(getLocalItem("words")!)
       : 30
   );
 
@@ -51,7 +53,7 @@ const SettingBar = ({
           }`}
         >
           <ReactSVG
-            src="/svgs/timer.svg"
+            src={asset("/svgs/timer.svg")}
             className="[&>div>svg]:size-5 [&_*]:stroke-current"
           />
           <span className="font-JetBrainsMono">Timer</span>
@@ -66,7 +68,7 @@ const SettingBar = ({
           }`}
         >
           <ReactSVG
-            src="/svgs/text.svg"
+            src={asset("/svgs/text.svg")}
             className="[&>div>svg]:size-5 [&_*]:stroke-current"
           />
           <span className="font-JetBrainsMono">Words</span>

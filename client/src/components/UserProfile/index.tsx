@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Button from "../MainButton";
 import backendApi from "@/api/backend";
 import Cookies from "js-cookie";
+import { asset } from "@/utils/asset";
 
 export default function UserProfileCard({ username }: { username: string }) {
   const [loading, setLoading] = useState(true);
@@ -62,7 +63,7 @@ export default function UserProfileCard({ username }: { username: string }) {
                 className="!flex font-JetBrainsMono items-center tooltip gap-2"
               >
                 <ReactSVG
-                  src="/svgs/location.svg"
+                  src={asset("/svgs/location.svg")}
                   className="[&>div>svg]:size-5  [&>div>svg]:md:size-6 [&_*]:stroke-primary"
                 />
                 <p className="text-xs sm:text-sm md:text-base font-JetBrainsMono capitalize text-primary">
@@ -74,7 +75,7 @@ export default function UserProfileCard({ username }: { username: string }) {
                 className="!flex font-JetBrainsMono items-center gap-2 tooltip"
               >
                 <ReactSVG
-                  src="/svgs/calendar.svg"
+                  src={asset("/svgs/calendar.svg")}
                   className="[&>div>svg]:size-5  [&>div>svg]:md:size-6 [&_*]:stroke-primary"
                 />
                 <p className="text-xs sm:text-sm md:text-base font-JetBrainsMono text-primary">

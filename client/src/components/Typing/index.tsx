@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { toggleIsTyping } from "@/features/isTyping";
 import useUser from "@/hooks/useUser";
+import { asset } from "@/utils/asset";
 
 interface TypingGameProps {
   data: string[];
@@ -185,7 +186,7 @@ function TypingGame({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     if (sound !== "off") {
-      audioRef.current = new Audio(`/sounds/${sound}.mp3`);
+      audioRef.current = new Audio(asset(`/sounds/${sound}.mp3`));
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     } else {
@@ -337,7 +338,7 @@ function TypingGame({
             "hidden"}`}
         >
           <ReactSVG
-            src="/svgs/cursor.svg"
+            src={asset("/svgs/cursor.svg")}
             className="[&>div>svg]:size-5 md:[&>div>svg]:size-7 [&_*]:stroke-primary"
           />
           <p>Click here to focus</p>

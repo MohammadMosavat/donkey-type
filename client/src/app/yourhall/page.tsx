@@ -4,22 +4,22 @@ import Loading from "@/components/loading";
 import WpmRecords from "@/components/WpmRecord";
 import { WpmRecord } from "@/types";
 import backendApi from "@/api/backend";
-import { useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 
-const MainPageProfile = () => {
-  const params = useParams();
+const Records = () => {
   const searchParams = useSearchParams();
   const [records, setRecords] = useState<WpmRecord[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const username = searchParams.get("user");
   const currentFilter = searchParams.get("filter") || "newest";
 
   useEffect(() => {
     const fetchRecords = async () => {
       try {
         const response = await backendApi.get("/records", {
-          params: { username: params.id, sort: currentFilter },
+          params: { username, sort: currentFilter },
         });
         setRecords(response.data);
       } catch (err) {
@@ -29,7 +29,7 @@ const MainPageProfile = () => {
       }
     };
     fetchRecords();
-  }, [params.id, currentFilter]);
+  }, [username, currentFilter]);
 
   return !loading ? (
     <main className="w-full flex flex-col gap-4 md:gap-6 px-4 md:px-0">
@@ -58,5 +58,11 @@ const MainPageProfile = () => {
     <Loading />
   );
 };
+
+const MainPageProfile = () => (
+  <Suspense fallback={<Loading />}>
+    <Records />
+  </Suspense>
+);
 
 export default MainPageProfile;
